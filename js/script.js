@@ -11,6 +11,11 @@
 const listanumeri = [];
 let num;
 
+// Creo un array per contenere i 5 numeri che ho scelto
+
+const listaindovina = [];
+let ind;
+
 // Creo 5 numeri causali
 
 for (let i = 0; i < 5; i++) {
@@ -22,21 +27,37 @@ for (let i = 0; i < 5; i++) {
 // Stampo in pagina i 5 numeri casuali
 
 const number = document.getElementById('number');
-number.innerHTML = listanumeri;
+number.innerText = listanumeri;
 
-// Creo un timer di 30 secondi, il quale dopo essi, l'utente inserisci i numeri 
-// che ricorda tramite i prompt.
+// Creo un timer di 30 secondi
 
-const timer = document.getElementById('timer');
+const timer = document.getElementById('display');
+let seconds = 0;
+timer.innerText = seconds;
 
-setTimeout (function () {
-    number.innerHTML = '';
-    for (let i = 0; i < 5; i++) {
-        const chiedinum = parseInt(prompt("Inserisci i numeri che ricordi"))
-     if (chiedinum === listanumeri) {
+const countdown = setTimeout (function () {
+    timer.innerText = ++seconds;
 
-     }
-
+    if(seconds === 30) {
+        clearInterval(countdown);
     }
 
+}, 30000)
+
+// L'utente inserisci i numeri che ricorda tramite i prompt.
+
+setTimeout (function () {
+   
+    number.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        let chiedinum = parseInt(prompt("Inserisci i numeri che ricordi"))
+     for (let j = 0; j < listanumeri.lenght; j++) {
+        if(chiedinum === listanumeri[j]) {
+            listaindovina.push(chiedinum);
+            alert("Hai indovinato " + listaindovina.length + " numeri. I numeri indovinati sono: " + listaindovina)
+            console.log(listaindovina)
+        }
+     }
+    }
+    
 }, 3000)

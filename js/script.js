@@ -16,6 +16,8 @@ let num;
 const listaindovina = [];
 let ind;
 
+let score = [];
+
 // Creo 5 numeri causali
 
 for (let i = 0; i < 5; i++) {
@@ -35,14 +37,14 @@ const timer = document.getElementById('display');
 let seconds = 0;
 timer.innerText = seconds;
 
-const countdown = setTimeout (function () {
+const countdown = setInterval (function () {
     timer.innerText = ++seconds;
 
     if(seconds === 30) {
         clearInterval(countdown);
     }
 
-}, 30000)
+}, 1000)
 
 // L'utente inserisci i numeri che ricorda tramite i prompt.
 
@@ -51,13 +53,16 @@ setTimeout (function () {
     number.innerHTML = '';
     for (let i = 0; i < 5; i++) {
         let chiedinum = parseInt(prompt("Inserisci i numeri che ricordi"))
-     for (let j = 0; j < listanumeri.lenght; j++) {
-        if(chiedinum === listanumeri[j]) {
-            listaindovina.push(chiedinum);
-            alert("Hai indovinato " + listaindovina.length + " numeri. I numeri indovinati sono: " + listaindovina)
-            console.log(listaindovina)
-        }
-     }
+        listaindovina.push(chiedinum);
     }
+
+    for (let j = 0; j < listaindovina.length; j++) {
+        if (listanumeri.includes(listaindovina[j])) {
+            score.push(listaindovina[j]);
+        }
+    }
+
+    alert (`Hai totalizzato ${score.length} punti. I numeri indovinati sono: ${score}`)
+  
     
 }, 3000)

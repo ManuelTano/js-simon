@@ -1,0 +1,21 @@
+* {
+    background-color: aquamarine;
+    color: black;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+#display {
+    color: rgb(199, 92, 92);
+    font-size: 80px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#number {
+    border: 2px solid black;
+    border-radius: 25px;
+
+}

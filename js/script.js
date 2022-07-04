@@ -8,7 +8,7 @@
 
 // Creo un array per contenere i 5 numeri casuali
 
-const listanumeri = [];
+let listanumeri = [];
 let num;
 
 // Creo un array per contenere i 5 numeri che ho scelto
@@ -22,8 +22,9 @@ let score = [];
 
 for (let i = 0; i < 5; i++) {
     num = Math.floor(Math.random() * 100);
-    listanumeri.push(num);
-    console.log(listanumeri);
+    if (listanumeri.includes(num)) {
+        i--
+    } else {listanumeri.push(num)};
 }
 
 // Stampo in pagina i 5 numeri casuali
@@ -65,4 +66,4 @@ setTimeout (function () {
     alert (`Hai totalizzato ${score.length} punti. I numeri indovinati sono: ${score}`)
   
     
-}, 30000)
+}, 29500)

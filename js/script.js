@@ -65,4 +65,4 @@ setTimeout (function () {
     alert (`Hai totalizzato ${score.length} punti. I numeri indovinati sono: ${score}`)
   
     
-}, 3000)
+}, 30000)

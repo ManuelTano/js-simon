@@ -51,7 +51,7 @@ const countdown = setInterval (function () {
 
 setTimeout (function () {
    
-    number.innerHTML = '';
+    number.innerText = '';
     for (let i = 0; i < 5; i++) {
         let chiedinum = parseInt(prompt("Inserisci i numeri che ricordi"))
         listaindovina.push(chiedinum);
